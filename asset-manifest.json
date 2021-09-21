@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/nasa-image-gallery/static/css/main.698bf530.chunk.css",
+    "main.js": "/nasa-image-gallery/static/js/main.5ae87d62.chunk.js",
+    "main.js.map": "/nasa-image-gallery/static/js/main.5ae87d62.chunk.js.map",
+    "runtime-main.js": "/nasa-image-gallery/static/js/runtime-main.82e06e65.js",
+    "runtime-main.js.map": "/nasa-image-gallery/static/js/runtime-main.82e06e65.js.map",
+    "static/js/2.1085c378.chunk.js": "/nasa-image-gallery/static/js/2.1085c378.chunk.js",
+    "static/js/2.1085c378.chunk.js.map": "/nasa-image-gallery/static/js/2.1085c378.chunk.js.map",
+    "index.html": "/nasa-image-gallery/index.html",
+    "static/css/main.698bf530.chunk.css.map": "/nasa-image-gallery/static/css/main.698bf530.chunk.css.map",
+    "static/js/2.1085c378.chunk.js.LICENSE.txt": "/nasa-image-gallery/static/js/2.1085c378.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/nasa-image-gallery/static/media/space_header.548bea05.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82e06e65.js",
+    "static/js/2.1085c378.chunk.js",
+    "static/css/main.698bf530.chunk.css",
+    "static/js/main.5ae87d62.chunk.js"
+  ]
+}
