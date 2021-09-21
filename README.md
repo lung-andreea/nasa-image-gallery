@@ -8,3 +8,6 @@ Image gallery created with NASA's Image and Video Library API
 - Loading animation while api request is running (to see this effect reload the page and scroll to the gallery section)
 - Count of total liked images at a given point in time
 - Feature to open a details dialog for each image where the user can read an extended description (either by clicking the `Read More` button or the `expand` icon)
+
+### Hosted code link [here](https://lung-andreea.github.io/nasa-image-gallery/).
+
