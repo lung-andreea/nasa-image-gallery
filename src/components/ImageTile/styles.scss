@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css?family=tileo:400i|Rubik:400,700&display=swap");
+
+$bp-md: 600px;
+$bp-lg: 800px;
+$d: 700ms;
+$e: cubic-bezier(0.19, 1, 0.22, 1);
+
+* {
+  box-sizing: border-box;
+}
+
+.tile {
+  margin: 8px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  text-align: center;
+  color: whitesmoke;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
+
+  .favorite-icon, .expand-icon {
+    position: absolute;
+    bottom: 12px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .favorite-icon {
+    right: 14px;
+  }
+
+  .expand-icon {
+    left: 14px;
+    font-size: 22px;
+  }
+
+  &__img {
+    transition: transform $d * 1.5 $e;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: calc(100% + 30px);
+    margin-bottom: -30px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.009) 11.7%,
+      hsla(0, 0%, 0%, 0.034) 22.1%,
+      hsla(0, 0%, 0%, 0.072) 31.2%,
+      hsla(0, 0%, 0%, 0.123) 39.4%,
+      hsla(0, 0%, 0%, 0.182) 46.6%,
+      hsla(0, 0%, 0%, 0.249) 53.1%,
+      hsla(0, 0%, 0%, 0.32) 58.9%,
+      hsla(0, 0%, 0%, 0.394) 64.3%,
+      hsla(0, 0%, 0%, 0.468) 69.3%,
+      hsla(0, 0%, 0%, 0.54) 74.1%,
+      hsla(0, 0%, 0%, 0.607) 78.8%,
+      hsla(0, 0%, 0%, 0.668) 83.6%,
+      hsla(0, 0%, 0%, 0.721) 88.7%,
+      hsla(0, 0%, 0%, 0.762) 94.1%,
+      hsla(0, 0%, 0%, 0.79) 100%
+    );
+    transform: translateY(-50%);
+    transition: transform $d * 2 $e;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-family: 'Rubik', sans-serif;
+    transition: transform $d $e;
+    z-index: 1;
+
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+
+  &__title {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-family: "tileo", serif;
+    //font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.35;
+    width: 100%;
+    //overflow: hidden;
+    //white-space: nowrap;
+    //text-overflow: ellipsis;
+  }
+
+  &__like-btn {
+    cursor: pointer;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+
+    &:hover {
+      background-color: lighten(black, 5%);
+    }
+
+    &:focus {
+      outline: 1px dashed yellow;
+      outline-offset: 3px;
+    }
+  }
+}
+
+@media (hover: hover) and (min-width: $bp-md) {
+  .tile:after {
+    transform: translateY(0);
+  }
+
+  .tile__content {
+    transform: translateY(calc(100% - 4.5rem));
+
+    > *:not(.tile__title) {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: transform $d $e, opacity $d $e;
+    }
+  }
+
+  .tile:hover,
+  .tile:focus-within {
+    align-items: center;
+
+    .tile__img {
+      transform: translateY(-4%);
+    }
+    &:after {
+      transform: translateY(-50%);
+    }
+
+    .tile__content {
+      transform: translateY(0);
+      justify-content: center;
+
+      > *:not(.tile__title) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: $d / 8;
+      }
+    }
+  }
+
+  .tile:focus-within {
+    &:after,
+    .tile__content,
+    .tile__content > *:not(.tile__title) {
+      transition-duration: 0s;
+    }
+  }
+}
