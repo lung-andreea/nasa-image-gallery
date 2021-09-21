@@ -31,4 +31,13 @@ const ImageCardModal = ({
   );
 };
 
-export default ImageCardModal;
+ImageCardModal.propTypes = {
+  imgSrc: PropTypes.string,
+  imgTitle: PropTypes.string,
+  imgDescription: PropTypes.string,
+  imgDate: PropTypes.string,
+  active: PropTypes.bool,
+  onClose: PropTypes.func,
+};
+
+export default React.memo(ImageCardModal);
